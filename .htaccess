@@ -1,16 +1,28 @@
-## EXPIRES CACHING ##
-<IfModule mod_expires.c>
-ExpiresActive On
-## ExpiresByType image/jpg "access 1 year"
-## ExpiresByType image/jpeg "access 1 year"
-## ExpiresByType image/gif "access 1 year"
-## ExpiresByType image/png "access 1 year"
-## ExpiresByType text/css "access 1 month"
-## ExpiresByType text/html "access 1 month"
-## ExpiresByType application/pdf "access 1 month"
-## ExpiresByType text/x-javascript "access 1 month"
-## ExpiresByType application/x-shockwave-flash "access 1 month"
-## ExpiresByType image/x-icon "access 1 year"
-## ExpiresDefault "access 1 month"
-</IfModule>
-## EXPIRES CACHING ##
+# cache images and flash content for one month
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf)$">
+	Header set Cache-Control "max-age=600"
+	DefaultLanguage en-US
+
+
+</FilesMatch>
+
+<Files .htaccess>
+	Order allow,deny
+	Deny from all
+</Files>
+<files index.html>
+	Order allow,deny
+	Deny from all
+</files>
+<FilesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh|css|js|html)$">
+	Order Allow,Deny
+	Deny from all
+</FilesMatch>
+# disable directory browsing
+Options All -Indexes
+
+# serve a standard 403 forbidden error page
+RewriteRule .*\.(gif|jpg)$ - [F,L]
+
+# protect against DOS attacks by limiting file upload size
+LimitRequestBody 10240000
