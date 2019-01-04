@@ -1062,6 +1062,20 @@ h1.academix-logo {
      background-repeat: no-repeat;
      background-size: cover;
 }
+
+
+@media only all and (max-width: 768px) {
+      .seq-step1 {
+          /* The file size of this background image is 93% smaller
+     * to improve page load speed on mobile internet connections */
+          
+          background-size: 100% auto;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+      }
+
+
 .seq.seq-active .seq-content {
   background: transparent;
   border-top-left-radius: 8px;
