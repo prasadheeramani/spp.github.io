@@ -1,0 +1,13 @@
+{
+  "name": "Structure Processing Property Research Group",
+  "short_name": "SPP Reaseach Group",
+  "description": "Dr. Shibayan Roy's research group at Materials Science Centre, IIT Kharagpur",
+  "start_url": "/?homescreen=1",
+  "background_color": "#000000",
+  "theme_color": "#0f4a73",
+  "icons": [{
+    "src": "favicon.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }]
+}
